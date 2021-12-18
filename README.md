@@ -16,7 +16,7 @@ Interactsh.poll # => Retrieves data from the server | [Hash]
 ### Working with custom server
 `Interactsh.new` accepts your custom domain as an argument. See [Custom Interactsh Server Installation](https://github.com/projectdiscovery/interactsh#interactsh-server)
 ```ruby
-Interactsh.new(domain.tld)
+Interactsh.new('domain.tld')
 ```
 
 ## Usage example :
