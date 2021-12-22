@@ -1,4 +1,4 @@
-# Interactsh ![Gem Version](https://img.shields.io/badge/gem-v0.0.1-blue)
+# Interactsh ![Gem Version](https://img.shields.io/badge/gem-v0.0.2-blue)
 Ruby library for [Interactsh](https://github.com/projectdiscovery/interactsh)
 
 ## Installation
@@ -17,6 +17,7 @@ Interactsh.poll # => Retrieves data from the server | [Hash]
 `Interactsh.new` accepts your custom domain as an argument. See [Custom Interactsh Server Installation](https://github.com/projectdiscovery/interactsh#interactsh-server)
 ```ruby
 Interactsh.new('domain.tld')
+Interactsh.new('domain.tld', 'your-secret-token')
 ```
 
 ## Usage example :

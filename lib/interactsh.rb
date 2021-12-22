@@ -7,9 +7,9 @@ require 'ruby_xid'
 require 'typhoeus'
 
 class Interactsh
-	attr_reader :public_key_encoded, :secret, :correlation_id, :server, :random_data, :rsa
+	attr_reader :public_key_encoded, :secret, :correlation_id, :server, :random_data, :rsa, :token
 
-	def initialize(server = 'interact.sh')    
+	def initialize(server = 'interact.sh', token = nil)    
     @rsa = OpenSSL::PKey::RSA.new(2048)
   	@public_key = @rsa.public_key.to_pem
   	@public_key_encoded = Base64.encode64(@public_key)
@@ -19,6 +19,7 @@ class Interactsh
   	@random_data = Array.new(13) { (Array('a'..'z') + Array(0..9)).sample }.join
 
   	@server = server
+  	@token = token
 
   	register
   end
@@ -28,8 +29,12 @@ class Interactsh
   end
 
   def poll
+  	headers = { }
+  	headers['Authorization'] = token if token
+
   	request = Typhoeus::Request.new(
-		  File.join(server, "/poll?id=#{correlation_id}&secret=#{secret}")
+		  File.join(server, "/poll?id=#{correlation_id}&secret=#{secret}"),
+		  headers: headers
 		)
 		request.run
 
@@ -59,11 +64,14 @@ class Interactsh
       "correlation-id": correlation_id
   	}.to_json
 
+  	headers = { 'Content-Type' => 'application/json' }
+  	headers['Authorization'] = token if token
+
   	request = Typhoeus::Request.new(
 		  File.join(server, '/register'),
 		  method: :post,
 		  body: data,
-		  headers: { 'Content-Type' => 'application/json' }
+		  headers: headers
 		)
 		request.run
 
