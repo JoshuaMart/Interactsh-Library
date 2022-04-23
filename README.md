@@ -36,6 +36,6 @@ request.run
 # We get the the different interactions
 datas = Interactsh.poll
 datas.each do |data|
-	puts "Request type : '#{data['protocol']}' from '#{data['remote-address']}' at #{data['timestamp']}"
+  puts "Request type : '#{data['protocol']}' from '#{data['remote-address']}' at #{data['timestamp']}"
 end
 ```
