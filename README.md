@@ -23,6 +23,7 @@ Interactsh.new('domain.tld', 'your-secret-token')
 ## Usage example :
 ```ruby
 require 'interactsh'
+require 'typhoeus'
 
 # Initialization
 Interactsh = Interactsh.new
