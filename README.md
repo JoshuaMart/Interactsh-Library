@@ -1,11 +1,13 @@
-# Interactsh ![Gem Version](https://img.shields.io/badge/gem-v0.0.2-blue)
-Ruby library for [Interactsh](https://github.com/projectdiscovery/interactsh)
+
+# InteractSH-Library
 
 <p align="center">  
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>  
     <a href="#"><img src="https://img.shields.io/badge/gem-v0.0.2-blue.svg?style=flat"></a>  
-    <a href="https://codeclimate.com/github/EasyRecon/Interactsh-Library"><img src="https://codeclimate.com/github/EasyRecon/Interactsh-Library.png"></a>/></a>
+    <a href="https://codeclimate.com/github/EasyRecon/Interactsh-Library"><img src="https://codeclimate.com/github/EasyRecon/Interactsh-Library.png"></a>
 </p>
+
+Ruby library for [Interactsh](https://github.com/projectdiscovery/interactsh)
 
 ## Installation
 ```
