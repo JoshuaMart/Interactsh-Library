@@ -1,4 +1,5 @@
 require 'openssl'
+require 'stringio'
 require 'jose'
 require 'securerandom'
 require 'base64'
