@@ -32,16 +32,14 @@ class Interactsh
 		headers = { }
 		headers['Authorization'] = token if token
 
-		request = Typhoeus::Request.new(
+		response = Typhoeus.get(
 			File.join(server, "/poll?id=#{correlation_id}&secret=#{secret}"),
 			headers: headers
 		)
-		request.run
-
 		decoded_datas = []
 
-		if request.response.code == 200
-			datas = JSON.parse(request.response.body)
+		if response&.code == 200
+			datas = JSON.parse(response.body)
 			unless datas.empty?
 				datas["data"].each do |enc_data|
 					decoded_datas << decrypt_data(datas["aes_key"], enc_data)
@@ -67,15 +65,13 @@ class Interactsh
 		headers = { 'Content-Type' => 'application/json' }
 		headers['Authorization'] = token if token
 
-		request = Typhoeus::Request.new(
+		response = Typhoeus.post(
 			File.join(server, '/register'),
-			method: :post,
 			body: data,
 			headers: headers
 		)
-		request.run
 
-		unless request.response.code == 200
+		unless response.code == 200
 			puts "[!] Interactsh - Problem with domain registration"
 		end
 	end
