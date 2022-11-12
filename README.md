@@ -16,9 +16,9 @@ gem install interactsh
 
 ## Available method
 ```ruby
-Interactsh.new # => Initialize a new domain on the interact.sh server | [Object]
-Interactsh.domain # => Displays the created domain | [String]
-Interactsh.poll # => Retrieves data from the server | [Hash]
+Interactsh.new # => Initialize a new InteractSH class | [Object]
+Interactsh.new_domain # => Generate a new domain | [String]
+Interactsh.poll # => Retrieves data from the server for a specific domain | [Hash]
 ```
 
 ### Working with custom server
