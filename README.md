@@ -37,7 +37,7 @@ require 'typhoeus'
 interactsh = Interactsh.new
 
 # Simulate interaction
-domain = interactsh.get_domain
+domain = interactsh.new_domain
 request = Typhoeus::Request.new(domain)
 request.run
 
