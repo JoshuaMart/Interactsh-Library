@@ -42,7 +42,7 @@ request = Typhoeus::Request.new(domain)
 request.run
 
 # We get the the different interactions
-datas = interactsh.poll
+datas = interactsh.poll(domain)
 datas.each do |data|
   puts "Request type : '#{data['protocol']}' from '#{data['remote-address']}' at #{data['timestamp']}"
 end

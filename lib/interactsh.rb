@@ -8,7 +8,7 @@ require 'ruby_xid'
 require 'typhoeus'
 
 class Interactsh
-	attr_reader :public_key_encoded, :secret, :correlation_id, :server, :random_data, :rsa, :token
+	attr_reader :public_key_encoded, :secret, :server, :random_data, :rsa, :token
 
 	def initialize(server = 'interact.sh', token = nil)
 		@rsa = OpenSSL::PKey::RSA.new(2048)
@@ -16,20 +16,21 @@ class Interactsh
 		@public_key_encoded = Base64.encode64(@public_key)
 
 		@secret = SecureRandom.uuid
-		@correlation_id = Xid.new.to_s
 		@random_data = Array.new(13) { (Array('a'..'z') + Array(0..9)).sample }.join
 
 		@server = server
 		@token = token
-
-		register
 	end
 
 	def get_domain
+		correlation_id = Xid.new.to_s
+		register(correlation_id)
+
 		"#{correlation_id}#{random_data}.#{server}"
 	end
 
-	def poll
+	def poll(host)
+		correlation_id = host[0..19]
 		headers = { }
 		headers['Authorization'] = token if token
 
@@ -56,7 +57,7 @@ class Interactsh
 
 	private
 
-	def register
+	def register(correlation_id)
 		data = {
 			"public-key": public_key_encoded,
 			"secret-key": secret,
