@@ -2,11 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'interactsh'
-  spec.version       = '0.9.3'
+  spec.version       = '0.9.5'
   spec.authors       = ['Joshua MARTINELLE']
   spec.email         = ['contact@jomar.fr']
   spec.summary       = 'Interactsh Ruby Library'
-  spec.homepage      = 'https://rubygems.org/gems/interactsh'
+  spec.homepage      = 'https://github.com/JoshuaMart/Interactsh-Library'
+  spec.metadata      = { "source_code_uri" => "https://github.com/JoshuaMart/Interactsh-Library", "homepage_uri" => "https://github.com/JoshuaMart/Interactsh-Library" }
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 2.7.1'
 
