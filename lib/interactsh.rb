@@ -13,7 +13,7 @@ require 'typhoeus'
 class Interactsh
   attr_reader :public_key_encoded, :secret, :server, :random_data, :rsa, :token
 
-  def initialize(server = 'interact.sh', token = nil)
+  def initialize(server = 'oast.me', token = nil)
     @rsa = OpenSSL::PKey::RSA.new(2048)
     @public_key = @rsa.public_key.to_pem
     @public_key_encoded = Base64.encode64(@public_key)
