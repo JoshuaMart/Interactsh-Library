@@ -31,19 +31,27 @@ Interactsh::Client.new('domain.tld', 'your-secret-token')
 ## Usage example :
 ```ruby
 require 'interactsh'
-require 'typhoeus'
+require 'net/http'
 
-# Initialization
-interactsh = Interactsh::Client.new
+# Initialize client
+client = Interactsh::Client.new
 
-# Simulate interaction
-domain = interactsh.new_domain
-request = Typhoeus::Request.new(domain)
-request.run
+# Generate unique interaction domain
+domain = client.new_domain
+puts "Generated domain: #{domain}"
 
-# We get the the different interactions
-datas = interactsh.poll(domain)
-datas.each do |data|
-  puts "Request type : '#{data['protocol']}' from '#{data['remote-address']}' at #{data['timestamp']}"
+# Simulate an HTTP request to the domain
+uri = URI("http://#{domain}")
+response = Net::HTTP.get_response(uri)
+puts "Made HTTP request to #{domain}"
+
+# Poll for interactions
+puts "Polling for interactions..."
+interactions = client.poll(domain)
+
+# Process interactions
+interactions.each do |interaction|
+  puts "Request type: '#{interaction['protocol']}' from '#{interaction['remote-address']}' at #{interaction['timestamp']}"
+  puts "Full interaction data: #{interaction.inspect}"
 end
 ```
