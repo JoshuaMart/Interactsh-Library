@@ -3,8 +3,8 @@
 
 <p align="center">
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
-    <a href="#"><img src="https://img.shields.io/badge/gem-v0.9.7-blue"></a>
-    <a href="https://codeclimate.com/github/EasyRecon/Interactsh-Library/maintainability"><img src="https://api.codeclimate.com/v1/badges/34bf2eae63b2cee4b87e/maintainability" /></a>
+    <a href="#"><img src="https://img.shields.io/badge/gem-v1.0.0-blue"></a>
+    <a href="https://codeclimate.com/github/JoshuaMart/Interactsh-Library/maintainability"><img src="https://api.codeclimate.com/v1/badges/34bf2eae63b2cee4b87e/maintainability" /></a>
 </p>
 
 Ruby library for [Interactsh](https://github.com/projectdiscovery/interactsh)
