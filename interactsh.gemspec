@@ -2,10 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'interactsh'
-  spec.version       = '0.9.7'
+  spec.version       = '1.0.0'
   spec.authors       = ['Joshua MARTINELLE']
   spec.email         = ['contact@jomar.fr']
   spec.summary       = 'Interactsh Ruby Library'
+  spec.description   = 'Ruby client library for Interactsh - a tool for detecting out-of-band interactions'
   spec.homepage      = 'https://github.com/JoshuaMart/Interactsh-Library'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.1.6'
@@ -21,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('ruby_xid', '~> 1.0', '>= 1.0.7')
 
   spec.files = Dir['lib/**/*.rb']
+  spec.require_paths = ['lib']
 end
