@@ -10,16 +10,15 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 3.1.6'
 
-  spec.metadata = { 
-    "source_code_uri" => "https://github.com/JoshuaMart/Interactsh-Library",
-    "homepage_uri" => "https://github.com/JoshuaMart/Interactsh-Library",
-    "github_repo" => "https://github.com/JoshuaMart/Interactsh-Library"
+  spec.metadata = {
+    'source_code_uri' => 'https://github.com/JoshuaMart/Interactsh-Library',
+    'homepage_uri' => 'https://github.com/JoshuaMart/Interactsh-Library',
+    'github_repo' => 'https://github.com/JoshuaMart/Interactsh-Library',
+    'rubygems_mfa_required' => 'true'
   }
 
   spec.add_dependency('jose', '~> 1.2', '>= 1.2.0')
   spec.add_dependency('ruby_xid', '~> 1.0', '>= 1.0.7')
-  spec.add_dependency('securerandom', '~> 0.2.0')
-  spec.add_dependency('typhoeus', '~> 1.4', '>= 1.4.0')
 
   spec.files = Dir['lib/**/*.rb']
 end
