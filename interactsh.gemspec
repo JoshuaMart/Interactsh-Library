@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'interactsh'
-  spec.version       = '1.0.0'
+  spec.version       = '1.0.1'
   spec.authors       = ['Joshua MARTINELLE']
   spec.email         = ['contact@jomar.fr']
   spec.summary       = 'Interactsh Ruby Library'
   spec.description   = 'Ruby client library for Interactsh - a tool for detecting out-of-band interactions'
   spec.homepage      = 'https://github.com/JoshuaMart/Interactsh-Library'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 3.1.6'
+  spec.required_ruby_version = '>= 3.1.3'
 
   spec.metadata = {
     'source_code_uri' => 'https://github.com/JoshuaMart/Interactsh-Library',
