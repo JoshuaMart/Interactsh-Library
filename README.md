@@ -3,7 +3,7 @@
 
 <p align="center">
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
-    <a href="#"><img src="https://img.shields.io/badge/gem-v1.0.0-blue"></a>
+    <a href="#"><img src="https://img.shields.io/badge/gem-v1.1.0-blue"></a>
     <a href="https://codeclimate.com/github/JoshuaMart/Interactsh-Library/maintainability"><img src="https://api.codeclimate.com/v1/badges/1d0e883c2d4af5834a0a/maintainability" /></a>
 </p>
 
