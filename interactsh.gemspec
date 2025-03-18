@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'interactsh'
-  spec.version       = '1.0.1'
+  spec.version       = '1.1.0'
   spec.authors       = ['Joshua MARTINELLE']
   spec.email         = ['contact@jomar.fr']
   spec.summary       = 'Interactsh Ruby Library'
