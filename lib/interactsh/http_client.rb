@@ -22,8 +22,7 @@ module Interactsh
 
       http.request(request)
     rescue StandardError => e
-      puts "[!] Interactsh - HTTP request error: #{e.message}"
-      nil
+      raise HTTPRequestError, "HTTP request error: #{e.message}"
     end
 
     # Makes the HTTP request to register a correlation ID
@@ -40,8 +39,7 @@ module Interactsh
 
       http.request(request)
     rescue StandardError => e
-      puts "[!] Interactsh - HTTP request error: #{e.message}"
-      nil
+      raise HTTPRequestError, "HTTP request error: #{e.message}"
     end
 
     # Checks if the HTTP response was successful
@@ -50,9 +48,9 @@ module Interactsh
     # @return [Boolean] True if response is successful, false otherwise
     def response_successful?(response)
       if !response || response.code.to_i != 200
-        puts '[!] Interactsh - Problem with data recovery'
-        return false
+        raise PollError, "Problem with data recovery. Response code: #{response&.code}"
       end
+
       true
     end
 

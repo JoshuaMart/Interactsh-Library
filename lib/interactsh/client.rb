@@ -77,10 +77,9 @@ module Interactsh
       }
 
       response = @http_client.make_register_request(data)
-
       return if response && response.code.to_i == 200
 
-      puts '[!] Interactsh - Problem with domain registration'
+      raise RegistrationError, "Problem with domain registration. Response code: #{response&.code}"
     end
   end
 end

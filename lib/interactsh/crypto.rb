@@ -16,8 +16,7 @@ module Interactsh
       decrypted_aes_key = decrypt_aes_key(aes_key)
       decrypt_payload(decrypted_aes_key, enc_data)
     rescue StandardError => e
-      puts "[!] Interactsh - Error decrypting data: #{e.message}"
-      {}
+      raise DecryptionError, "Error decrypting data: #{e.message}"
     end
 
     private
