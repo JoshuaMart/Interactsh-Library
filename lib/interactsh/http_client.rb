@@ -65,6 +65,8 @@ module Interactsh
     def setup_http_client(uri)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = (uri.scheme == 'https')
+      http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+      http.verify_hostname = false
       http
     end
 
