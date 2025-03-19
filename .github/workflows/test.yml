@@ -35,6 +35,12 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 
+      - name: Convert SimpleCov report to Code Climate format
+        run: |
+          mv coverage/.resultset.json coverage/.simplecov.json
+        if: success()
+
       - name: Publish code coverage
         run: |
           ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
+        if: success()
