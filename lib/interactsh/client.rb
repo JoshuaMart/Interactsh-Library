@@ -36,7 +36,8 @@ module Interactsh
     # Polls the server for interaction data for a given host
     #
     # @param host [String] The host to poll data for
-    # @return [Array] Array of interaction data or empty array if polling failed
+    # @return [Array] Array of interaction data or empty array if no data found
+    # @raise [PollError] If polling fails
     def poll(host)
       correlation_id = host[0..19]
       response = @http_client.make_poll_request(correlation_id, secret)
