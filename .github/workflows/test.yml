@@ -38,6 +38,9 @@ jobs:
       - name: Ensure coverage file exists
         run: ls -la coverage
 
+      - name: Display lcov file if exists
+        run: cat coverage/lcov.info || echo "No lcov.info found"
+
       - name: Publish code coverage
         run: |
           ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}} -t lcov
