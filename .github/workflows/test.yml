@@ -42,5 +42,5 @@ jobs:
 
       - name: Publish code coverage
         run: |
-          ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
+          ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}} -t simplecov
         if: success()
