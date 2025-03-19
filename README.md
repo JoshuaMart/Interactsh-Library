@@ -5,6 +5,8 @@
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
     <a href="#"><img src="https://img.shields.io/badge/gem-v1.1.0-blue"></a>
     <a href="https://codeclimate.com/github/JoshuaMart/Interactsh-Library/maintainability"><img src="https://api.codeclimate.com/v1/badges/1d0e883c2d4af5834a0a/maintainability" /></a>
+    <a href="https://github.com/JoshuaMart/Interactsh-Library/actions/workflows/test.yml"><img src="https://github.com/JoshuaMart/Interactsh-Library/actions/workflows/test.yml/badge.svg"></a>
+    <a href="https://codeclimate.com/github/JoshuaMart/Interactsh-Library/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1d0e883c2d4af5834a0a/test_coverage" /></a>
 </p>
 
 Ruby library for [Interactsh](https://github.com/projectdiscovery/interactsh)
