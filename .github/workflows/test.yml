@@ -35,6 +35,9 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 
+      - name: Ensure coverage file exists
+        run: ls -la coverage
+
       - name: Publish code coverage
         run: |
           ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}} -t simplecov
