@@ -45,16 +45,24 @@ module Interactsh
     # Checks if the HTTP response was successful
     #
     # @param response [Net::HTTPResponse, nil] The HTTP response
-    # @return [Boolean] True if response is successful, false otherwise
+    # @return [Boolean] True if response is successful
+    # @raise [PollError] If response is not successful
     def response_successful?(response)
-      if !response || response.code.to_i != 200
-        raise PollError, "Problem with data recovery. Response code: #{response&.code}"
-      end
+      return true if response&.code&.to_i == 200
 
-      true
+      handle_error_response(response)
     end
 
     private
+
+    def handle_error_response(response)
+      if response&.code&.to_i == 400 &&
+         response&.body&.include?('could not get interactions: could not get correlation-id from cache')
+        raise PollError, 'Correlation ID not found in cache'
+      end
+
+      raise PollError, "Problem with data recovery. Response code: #{response&.code}"
+    end
 
     # Sets up an HTTP client
     #
