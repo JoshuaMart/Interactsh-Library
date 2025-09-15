@@ -109,6 +109,32 @@ RSpec.describe Interactsh::HttpClient do
       end
     end
 
+    context 'when response code is 400 with correlation ID cache error' do
+      let(:response) do
+        double('response',
+               code: '400',
+               body: '{"error":"could not get interactions: could not get correlation-id from cache"}')
+      end
+
+      it 'raises a PollError with specific message' do
+        expect { http_client.response_successful?(response) }
+          .to raise_error(Interactsh::PollError, 'Correlation ID not found in cache')
+      end
+    end
+
+    context 'when response code is 400 with other error' do
+      let(:response) do
+        double('response',
+               code: '400',
+               body: '{"error":"some other error"}')
+      end
+
+      it 'raises a general PollError' do
+        expect { http_client.response_successful?(response) }
+          .to raise_error(Interactsh::PollError, 'Problem with data recovery. Response code: 400')
+      end
+    end
+
     context 'when response code is 200' do
       let(:response) { double('response', code: '200') }
 
